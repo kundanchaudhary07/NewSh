@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Happy Birthday POOJA ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --bg:#070709;
+  --panel:#101015;
+  --panel-2:#17171d;
+  --text:#f8f6ff;
+  --muted:#8e8b9c;
+  --gold:#ffb869;
+  --gold-2:#ff9a4d;
+  --read:#8dd8ff;
+  --line:rgba(255,255,255,.08);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+
+body{
+  font-family:'Outfit',sans-serif;
+  background:#070709;
+  color:var(--text);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ---------- cinematic background ---------- */
+.bg{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:0;
+}
+
+.aurora{
+  position:absolute;
+  width:70vw;
+  height:70vw;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.45;
+  mix-blend-mode:screen;
+  will-change:transform;
+  transform:translate3d(0,0,0);
+}
+
+.a1{
+  background:#ff7a7a;
+  top:-15%;
+  left:-10%;
+  animation:float1 16s ease-in-out infinite;
+}
+
+.a2{
+  background:#7a8cff;
+  bottom:-20%;
+  right:-10%;
+  animation:float2 18s ease-in-out infinite;
+}
+
+.a3{
+  background:#ffb869;
+  top:30%;
+  left:40%;
+  animation:float3 20s ease-in-out infinite;
+}
+
+@keyframes float1{
+  0%,100%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(60px,40px) scale(1.08);}
+}
+@keyframes float2{
+  0%,100%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(-50px,-30px) scale(1.1);}
+}
+@keyframes float3{
+  0%,100%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(-30px,20px) scale(1.06);}
+}
+
+.grain{
+  position:absolute;
+  inset:0;
+  opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- phone ---------- */
+.phone{
+  position:relative;
+  z-index:2;
+  width:390px;
+  height:820px;
+  max-height:94vh;
+  padding:14px;
+  border-radius:54px;
+  background:linear-gradient(180deg,#0a0a0e,#050506);
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.65),
+    0 0 0 1px rgba(255,255,255,.06) inset;
+}
+
+.screen{
+  position:relative;
+  width:100%;
+  height:100%;
+  border-radius:42px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  background:
+    radial-gradient(circle at top left, rgba(255,184,105,.08), transparent 35%),
+    linear-gradient(180deg, #18131b 0%, #0f0d13 100%);
+  backdrop-filter:blur(18px);
+}
+
+.screen::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, rgba(255,255,255,.08), transparent 18%);
+  pointer-events:none;
+}
+
+.notch{
+  position:absolute;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:112px;
+  height:28px;
+  border-radius:18px;
+  background:#050506;
+  z-index:20;
+}
+
+/* ---------- overlay ---------- */
+.overlay{
+  position:absolute;
+  inset:0;
+  z-index:15;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(7,7,9,.78);
+  backdrop-filter:blur(18px);
+  transition:opacity .8s ease, visibility .8s ease;
+}
+
+.overlay.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.overlay-card{
+  width:min(84%,320px);
+  padding:30px 26px;
+  border-radius:30px;
+  text-align:center;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.overlay-icon{
+  width:76px;
+  height:76px;
+  margin:0 auto 18px;
+  border-radius:24px;
+  display:grid;
+  place-items:center;
+  font-size:34px;
+  background:linear-gradient(135deg, rgba(255,184,105,.32), rgba(255,154,77,.12));
+  box-shadow:0 10px 30px rgba(255,184,105,.18);
+}
+
+.overlay h2{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.overlay p{
+  font-size:14px;
+  line-height:1.6;
+  color:#c9c6d4;
+}
+
+/* ---------- top bar ---------- */
+.status{
+  display:flex;
+  justify-content:space-between;
+  padding:18px 28px 6px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;
+  font-weight:600;
+  opacity:0;
+}
+
+.header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 18px 16px;
+  border-bottom:1px solid var(--line);
+  opacity:0;
+}
+
+.avatar{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1b1208;
+  font-weight:700;
+  box-shadow:0 8px 24px rgba(255,184,105,.28);
+  overflow:hidden;
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.name{
+  font-size:17px;
+  font-weight:600;
+}
+
+.sub{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:2px;
+  letter-spacing:.04em;
+}
+
+/* ---------- chat ---------- */
+.chat{
+  flex:1;
+  overflow-y:auto;
+  padding:18px 16px 12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  scrollbar-width:none;
+}
+
+.chat::-webkit-scrollbar{display:none;}
+
+.divider{
+  align-self:center;
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.06);
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:0;
+}
+
+.row{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.bubble{
+  position:relative;
+  max-width:78%;
+  padding:11px 15px 12px;
+  border-radius:22px 22px 6px 22px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:#22170d;
+  font-size:14.5px;
+  line-height:1.5;
+  font-weight:500;
+  opacity:0;
+  transform-origin:100% 100%;
+  box-shadow:
+    0 12px 28px rgba(255,154,77,.24),
+    0 2px 8px rgba(0,0,0,.18);
+}
+
+.bubble::after{
+  content:"";
+  position:absolute;
+  inset:1px;
+  border-radius:inherit;
+  background:linear-gradient(180deg, rgba(255,255,255,.16), transparent 45%);
+  pointer-events:none;
+}
+
+.tapback{
+  position:absolute;
+  top:-14px;
+  left:-8px;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:#211c25;
+  border:2px solid #18131b;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+  transform:scale(0);
+  box-shadow:0 6px 16px rgba(0,0,0,.35);
+}
+
+.receipt{
+  align-self:flex-end;
+  margin:2px 4px 4px 0;
+  font-size:10px;
+  color:var(--read);
+  opacity:0;
+}
+
+/* ---------- composer ---------- */
+.composer{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px calc(16px + env(safe-area-inset-bottom,0px));
+  border-top:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  opacity:0;
+}
+
+.pill{
+  flex:1;
+  min-height:38px;
+  padding:0 16px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  display:flex;
+  align-items:center;
+  font-size:13px;
+  overflow:hidden;
+}
+
+.placeholder{color:#7f7b8c;}
+.typed{color:var(--text);}
+
+.cursor{
+  width:2px;
+  height:14px;
+  background:var(--gold);
+  margin-left:2px;
+  border-radius:1px;
+  animation:blink .9s steps(1) infinite;
+}
+
+@keyframes blink{50%{opacity:0;}}
+
+.send{
+  width:38px;
+  height:38px;
+  border:none;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:#1b1208;
+  font-size:15px;
+  display:grid;
+  place-items:center;
+  box-shadow:0 10px 24px rgba(255,184,105,.28);
+  cursor:pointer;
+  transition:transform 0.15s ease, opacity 0.15s ease;
+}
+.send:hover{transform:scale(1.08);}
+.send:active{transform:scale(0.92);}
+
+.msg-input{
+  width:100%;
+  border:none;
+  background:transparent;
+  color:var(--text);
+  font-family:inherit;
+  font-size:13.5px;
+  outline:none;
+  display:none;
+}
+.msg-input::placeholder{color:#7f7b8c;}
+
+.user-bubble{
+  background:linear-gradient(135deg, #0b84fe, #0070e0) !important;
+  color:#ffffff !important;
+}
+
+/* ---------- footer ---------- */
+.footer{
+  position:fixed;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+
+.footer small{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#8e8b9c;
+}
+
+.replay{
+  border:none;
+  background:none;
+  color:#9b97aa;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.12em;
+  cursor:pointer;
+}
+
+.replay:hover{color:var(--gold);}
+
+@media (max-width:480px){
+  body{align-items:stretch; justify-content:stretch;}
+  .phone{
+    width:100vw;
+    height:100dvh;
+    max-height:none;
+    border-radius:0;
+    padding:0;
+    box-shadow:none;
+  }
+  .screen{border-radius:0;}
+  .footer{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg">
+  <div class="aurora a1"></div>
+  <div class="aurora a2"></div>
+  <div class="aurora a3"></div>
+  <div class="grain"></div>
+</div>
+
+<div class="phone">
+  <div class="screen">
+
+    <div class="notch"></div>
+
+    <div class="overlay" id="overlay">
+      <div class="overlay-card">
+        <div class="overlay-icon">💌</div>
+        <h2>A special surprise for POOJA</h2>
+        <p>This conversation starts only when this section comes into view, just like a real little secret waiting for you.</p>
+      </div>
+    </div>
+
+    <div class="status" id="statusBar">
+      <span id="time">--:--</span>
+      <span>📶 🔋</span>
+    </div>
+
+    <div class="header" id="header">
+      <div class="avatar">
+        <img src="/ref/girl3.jpeg" alt="POOJA" />
+      </div>
+      <div>
+        <div class="name">POOJA ❤️</div>
+        <div class="sub">iMessage · online now</div>
+      </div>
+    </div>
+
+    <div class="chat" id="chat">
+      <div class="divider" id="divider">Today</div>
+    </div>
+
+    <div class="composer" id="composer">
+      <div class="pill" id="pill">
+        <input type="text" id="userMsgInput" class="msg-input" placeholder="iMessage" autocomplete="off" />
+        <span class="placeholder" id="placeholder">iMessage</span>
+        <span class="typed" id="typed"></span>
+        <span class="cursor" id="cursor" style="display:none;"></span>
+      </div>
+      <button class="send" id="sendBtn" aria-label="Send message">➤</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <!-- <small>for betu · with love</small> -->
+  <button class="replay" id="replay">replay</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script>
+const MESSAGES = [
+  "Happy Birthday Pooja ❤️",
+  "Today is all about celebrating you and the beautiful light you bring into every day ✨",
+  "I hope this little birthday surprise brings the biggest smile to your face 🥹",
+  "Wishing you endless happiness, peace, love, and all the dreams your heart holds,",
+  "May this year ahead be as extraordinary, sweet, and bright as you are,",
+  "Happy Birthday my love, always and forever 🫂❤️"
+];
+
+const chat = document.getElementById('chat');
+const divider = document.getElementById('divider');
+const pill = document.getElementById('pill');
+const placeholder = document.getElementById('placeholder');
+const typed = document.getElementById('typed');
+const cursor = document.getElementById('cursor');
+const timeEl = document.getElementById('time');
+const userMsgInput = document.getElementById('userMsgInput');
+const sendBtn = document.getElementById('sendBtn');
+
+function enableUserComposer() {
+  cursor.style.display = 'none';
+  typed.style.display = 'none';
+  placeholder.style.display = 'none';
+  userMsgInput.style.display = 'block';
+}
+
+function resetUserComposer() {
+  userMsgInput.style.display = 'none';
+  userMsgInput.value = '';
+  typed.style.display = 'inline';
+  placeholder.style.display = 'inline';
+  cursor.style.display = 'none';
+}
+
+function sendUserMessage() {
+  const text = userMsgInput.value.trim();
+  if (!text) return;
+
+  const row = document.createElement('div');
+  row.className = 'row';
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble user-bubble';
+  bubble.textContent = text;
+  row.appendChild(bubble);
+  chat.appendChild(row);
+
+  gsap.fromTo(bubble,
+    { opacity: 0, scale: 0.7, y: 15, x: 10 },
+    { opacity: 1, scale: 1, y: 0, x: 0, duration: 0.45, ease: 'back.out(1.5)' }
+  );
+
+  userMsgInput.value = '';
+  scrollBottom();
+
+  setTimeout(() => {
+    const tap = document.createElement('div');
+    tap.className = 'tapback';
+    tap.textContent = '❤️';
+    bubble.appendChild(tap);
+    gsap.to(tap, { scale: 1, duration: 0.5, ease: 'back.out(3.2)' });
+  }, 600);
+}
+
+sendBtn.addEventListener('click', sendUserMessage);
+userMsgInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    sendUserMessage();
+  }
+});
+
+function updateTime(){
+  const now = new Date();
+  const h = now.getHours();
+  const m = String(now.getMinutes()).padStart(2, '0');
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  const h12 = h % 12 || 12;
+  const t = `${h12}:${m} ${ampm}`;
+
+  timeEl.textContent = t;
+  divider.textContent = `Today ${t}`;
+}
+
+updateTime();
+setInterval(updateTime, 30000);
+
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sleep = (ms) => new Promise(r => setTimeout(r, reduced ? 0 : ms));
+
+function scrollBottom(){
+  gsap.to(chat, {
+    scrollTop: chat.scrollHeight,
+    duration: reduced ? 0 : .5,
+    ease:'power2.out'
+  });
+}
+
+async function typeMessage(text){
+  placeholder.style.display = 'none';
+  cursor.style.display = 'inline-block';
+  typed.textContent = '';
+
+  for(let i=0;i<text.length;i++){
+    typed.textContent += text[i];
+    pill.scrollLeft = pill.scrollWidth;
+    await sleep(26);
+  }
+}
+
+async function clearComposer(){
+  typed.textContent = '';
+  cursor.style.display = 'none';
+  placeholder.style.display = 'inline';
+}
+
+async function run(){
+
+  resetUserComposer();
+  chat.innerHTML = '';
+  chat.appendChild(divider);
+
+  gsap.set(['#statusBar','#header','#composer'], {opacity:0, y:-8});
+  gsap.set(divider, {opacity:0});
+
+  await sleep(180);
+
+  gsap.to('#statusBar', {opacity:1, y:0, duration:.55, ease:'power2.out'});
+  await sleep(140);
+
+  gsap.to('#header', {opacity:1, y:0, duration:.55, ease:'power2.out'});
+  await sleep(220);
+
+  gsap.to(divider, {opacity:1, duration:.45});
+  gsap.to('#composer', {opacity:1, duration:.55});
+
+  await sleep(520);
+
+  for(let i=0;i<MESSAGES.length;i++){
+
+    const text = MESSAGES[i];
+    const last = i === MESSAGES.length - 1;
+
+    await typeMessage(text);
+    await sleep(200);
+    await clearComposer();
+
+    const row = document.createElement('div');
+    row.className = 'row';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.textContent = text;
+
+    row.appendChild(bubble);
+    chat.appendChild(row);
+
+    gsap.fromTo(
+      bubble,
+      {opacity:0, scale:.7, y:20, x:12},
+      {opacity:1, scale:1, y:0, x:0, duration:.52, ease:'back.out(1.6)'}
+    );
+
+    scrollBottom();
+
+    if(last){
+
+      const receipt = document.createElement('div');
+      receipt.className = 'receipt';
+      receipt.textContent = `Read ${new Date().toLocaleTimeString([], {
+        hour:'numeric',
+        minute:'2-digit',
+        hour12:true
+      })} ✓✓`;
+
+      chat.appendChild(receipt);
+
+      gsap.to(receipt, {opacity:1, duration:.45});
+
+      const tap = document.createElement('div');
+      tap.className = 'tapback';
+      tap.textContent = '❤️';
+
+      bubble.appendChild(tap);
+
+      gsap.to(tap, {
+        scale:1,
+        duration:.6,
+        ease:'back.out(3.2)'
+      });
+
+      setTimeout(enableUserComposer, 500);
+
+    } else {
+      await sleep(320);
+    }
+  }
+}
+
+document.getElementById('replay').addEventListener('click', run);
+
+/* ---------- start only when visible ---------- */
+
+let started = false;
+
+function startExperience(){
+
+  if(started) return;
+
+  started = true;
+
+  document.getElementById('overlay').classList.add('hidden');
+
+  setTimeout(run, reduced ? 0 : 450);
+}
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && entry.intersectionRatio > 0.6){
+        startExperience();
+      }
+    });
+  },
+  {threshold:[0.6]}
+);
+
+observer.observe(document.querySelector('.screen'));
+</script>
+
+
+<script>
+  // Smart wheel and touch forwarding: allows native conversation scrolling inside .chat,
+  // and only forwards to parent window when conversation reaches boundary or event is on outer frame
+  const chatEl = document.querySelector('.chat');
+
+  window.addEventListener('wheel', (e) => {
+    if (!window.parent || window.parent === window) return;
+
+    if (chatEl && chatEl.contains(e.target)) {
+      const isScrollingUp = e.deltaY < 0;
+      const isScrollingDown = e.deltaY > 0;
+      const canScrollUp = chatEl.scrollTop > 1;
+      const canScrollDown = chatEl.scrollTop + chatEl.clientHeight < chatEl.scrollHeight - 4;
+
+      if ((isScrollingUp && canScrollUp) || (isScrollingDown && canScrollDown)) {
+        // Let chat scroll naturally
+        return;
+      }
+    }
+
+    // At edge or on outer phone frame, forward scroll to parent window smoothly
+    window.parent.postMessage({ type: 'FORWARD_SCROLL', deltaY: e.deltaY }, '*');
+  }, { passive: true });
+
+  let touchStartY = 0;
+  window.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!window.parent || window.parent === window || !e.touches || !e.touches[0]) return;
+    const currentY = e.touches[0].clientY;
+    const deltaY = touchStartY - currentY;
+    touchStartY = currentY;
+
+    if (chatEl && chatEl.contains(e.target)) {
+      const isScrollingUp = deltaY < 0;
+      const isScrollingDown = deltaY > 0;
+      const canScrollUp = chatEl.scrollTop > 1;
+      const canScrollDown = chatEl.scrollTop + chatEl.clientHeight < chatEl.scrollHeight - 4;
+
+      if ((isScrollingUp && canScrollUp) || (isScrollingDown && canScrollDown)) {
+        return;
+      }
+    }
+
+    window.parent.postMessage({ type: 'FORWARD_SCROLL', deltaY: deltaY }, '*');
+  }, { passive: true });
+
+  window.addEventListener('keydown', (e) => {
+    if (window.parent && window.parent !== window) {
+      if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
+        window.parent.postMessage({ type: 'FORWARD_KEY', key: e.key }, '*');
+      } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
+        window.parent.postMessage({ type: 'FORWARD_KEY', key: e.key }, '*');
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
